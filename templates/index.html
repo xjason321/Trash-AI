@@ -4,22 +4,45 @@
     <meta charset="utf-8">
     <meta name="keywords" content="trash.ai, Save The World!">
     <meta name="description" content="">
-    <title>TrashAI ~ Hackbytes II</title>
+    <title>TrashAI ~ for Hackbytes II</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='nicepage.css') }}" media="screen">
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" media="screen">
     <meta name="generator" content="Nicepage 5.12.7, nicepage.com">
-
     <link rel="icon"
       type="image/ico"
       href="static/favicon.ico">
-
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-  
+
+    <script defer>
+      window.smoothScroll = function(target) {
+          var scrollContainer = target;
+          do { //find scroll container
+              scrollContainer = scrollContainer.parentNode;
+              if (!scrollContainer) return;
+              scrollContainer.scrollTop += 1;
+          } while (scrollContainer.scrollTop == 0);
+
+          var targetY = 0;
+          do { //find the top of target relatively to the container
+              if (target == scrollContainer) break;
+              targetY += target.offsetTop;
+          } while (target = target.offsetParent);
+
+          scroll = function(c, a, b, i) {
+              i++; if (i > 30) return;
+              c.scrollTop = a + (b - a) / 30 * i;
+              setTimeout(function(){ scroll(c, a, b, i); }, 20);
+          }
+          // start scrolling
+          scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+      }
+    </script>
+
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Home">
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body data-home-page="Home.html" data-home-page-title="Home" class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-bb01"><div class="u-clearfix u-sheet u-sheet-1">
+  <body data-home-page="Home.html" data-home-page-title="Home" class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-bb01" style="background-color: #90D670;"><div class="u-clearfix u-sheet u-sheet-1">
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
           <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
             <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
@@ -40,51 +63,68 @@
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
           </div>
         </nav>
-        <p class="u-text u-text-default u-text-1">
-          <span style="font-weight: 700;">trash.ai</span> - A trash AI built to recognize trash! c:
+        <p class="u-text u-text-default u-text-1" >
+          <span style="font-weight: 700; text-align: center; ">trash.ai</span> - A trash AI built to recognize trash! :D
         </p>
       </div></header>
     <section class="u-clearfix u-image u-parallax u-shading u-section-1" id="carousel_1cf7">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-opacity u-opacity-15 u-palette-1-base u-group-1">
           <div class="u-container-layout u-container-layout-1">
-            <p class="u-align-center u-text u-text-1">Made by Jason Xie and Subhash Srinivasa</p>
+            <p class="u-align-center u-text u-text-1">Made by Jason Xie, Subhash Srinivasa and Komal Tummala</p>
             <div class="u-border-3 u-border-white u-shape u-shape-bottom u-shape-left u-shape-1"></div>
             <h1 class="u-align-center u-text u-text-body-alt-color u-title u-text-2">trash.ai</h1>
-            <p class="u-align-center u-text u-text-3"> <i>A program that uses machine learning to identify garbage types from images.</i></p>
+            <p class="u-align-center u-text u-text-3"> <i>A machine learning program developed to accurately identify and classify different types of garbage from images.</i></p>
             <div class="u-border-3 u-border-white u-shape u-shape-right u-shape-top u-shape-2"></div>
-            <a href="https://nicepage.com/landing-page" class="u-border-1 u-border-palette-1-base u-btn u-button-style u-palette-1-base u-btn-1">Try it out!</a>
+            <button class="u-border-1 u-border-palette-1-base u-btn u-button-style u-palette-1-base u-btn-1" onclick="smoothScroll(document.getElementById('uploadContainer'))">Try it out!</button>
           </div>
         </div>
       </div>
     </section>
     <section class="u-align-center u-clearfix u-image u-shading u-section-2" id="carousel_e28b" data-image-width="1980" data-image-height="924">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <img class="u-image u-image-default u-image-1" data-image-width="600" data-image-height="912">
+        <img class="u-image u-image-default u-image-1" src="static/webimages/img1.jpeg" data-image-width="600" data-image-height="912">
         <h2 class="u-text u-text-body-color u-text-1">Save The World!</h2>
-        <img class="u-image u-image-default u-image-2" data-image-width="862" data-image-height="757">
+        <img class="u-image u-image-default u-image-2" src="static/webimages/img2.jpeg" data-image-width="862" data-image-height="757">
         <div class="u-border-2 u-border-palette-1-base u-line u-line-horizontal u-line-1"></div>
         <p class="u-text u-text-body-color u-text-2">Place your trash into the correct bins! Don't know which one to throw it in?<br>Use our program today!<br>
           <br>
-          <br>Be a part of the solution.
+          <b >Join us in making a difference
         </p>
       </div>
     </section>
 
-    <section>
-      <div class="u-align-center u-container-style paddingpls">
-        <form action="/templates/index.html">
+    <section class="coverpadding">
+      <div class="u-align-center u-container-style paddingpls" id="uploadContainer">
+        <form action="{{ url_for('upload')}}" method="POST" enctype="multipart/form-data">
           <h3 class="u-text u-text-variant u-text-1">Activate trash.ai!</h3>
-          <p class="u-text u-text-variant u-text-1">Upload your image here.</p>
-          <br>
-          <input type="file" id="myFile" name="filename">
-          <input type="submit">
+          {% if not filename %}
+          <div id="uploadImage">
+            <p class="u-text u-text-variant u-text-1">Upload your image here</p>
+            <br>
+            <input type="file" id="myFile" class="imageUpload" name="imageUpload">
+            <input type="submit" value="Upload">
+          </div>
+          {% endif %}
         </form>
+
+        {% if filename %}
+          <div id="imageContainer">
+            <p>You uploaded the following image:</p>
+            <br>
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+            <br>
+            <div class="u-small-text u-text u-text-variant u-text-1 predictioncontainer" id="predictioncontainer" style="margin: 20px 450px;">
+              <h3>TrashAI has identified your trash as: <b style="color: darkgreen;">"{{prediction}}"</b>.</h3>
+              <br>
+              <p><u>Description and How to Dispose:</u></p>
+              <p>{{instructions}}</p>
+            </div>
+        {% endif %}
       </div>
     </section>
     
-    
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-50da"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1"><span style="font-weight: 700;">trash.ai</span> - Made by Jason Xie and Subhash Srinivasa</p>
+        <p class="u-small-text u-text u-text-variant u-text-1"><span style="font-weight: 700;">trash.ai</span> - Made by Jason Xie, Subhash Srinivasa and Komal Tummala</p>
       </div></footer>  
 </body></html>

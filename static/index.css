@@ -1,5 +1,5 @@
  .u-section-1 {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("sec1.jpeg");
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("webimages/sec1.jpeg");
 }
 
 .u-section-1 .u-sheet-1 {
@@ -180,7 +180,16 @@ body {
     margin-left: 0;
   }
 } .u-section-2 {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("sec2.jpeg");
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("webimages/sec2.jpeg");
+}
+
+.coverpadding {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.315)), url("webimages/sec4.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .u-section-2 .u-sheet-1 {
@@ -202,6 +211,10 @@ body {
   font-size: 2.25rem;
   width: 740px;
   margin: -296px auto 0;
+}
+
+.predictioncontainer {
+  margin: 20px, 150px;
 }
 
 .u-section-2 .u-image-2 {
