@@ -1,5 +1,5 @@
 from PIL import Image
-
+import tensorflow as tf
 import numpy as np
 import os
 import random
@@ -36,5 +36,8 @@ def pre_process(path):
         im_list.append([])
         for j in range(255):
             im_list[i].append(pxs[i, j])
-    print(im_list)
+    print(im_list[0])
+    
 pre_process('train_data/battery/battery1.jpg')
+
+model = tf.keras.Sequential()
