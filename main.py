@@ -1,5 +1,6 @@
 from PIL import Image
 import tensorflow as tf
+from tensorflow.keras import layers
 import numpy as np
 import os
 import random
@@ -36,8 +37,36 @@ def pre_process(path):
         im_list.append([])
         for j in range(255):
             im_list[i].append(pxs[i, j])
-    print(im_list[0])
+    return (im_list[0])
     
-pre_process('train_data/battery/battery1.jpg')
+x_train = []
+y_train = []
 
+for folder in ['battery', 'biological', 'brown-glass', 'cardboard', 'clothes', 'green-glass', 'metal', 'paper', 'plastic', 'shoes', 'trash', 'white-glass']:
+        num_files = len(os.listdir(f"train_data/{folder}")) + 1
+
+        print(f"Folder {folder} has {num_files} images.")
+        for i in range(1, num_files):
+            path = f'train_data/{folder}/{folder}{str(i)}.jpg'
+            x_train.append(pre_process(path))
+            y_train.append(folder)
+            
 model = tf.keras.Sequential()
+model.add(tf.keras.layers.Flatten(input_shape=(255, 255, 3)))
+#model.add(layers.Conv2D(255, (3, 3), activation='relu', input_shape=(255, 255, 3)))
+# model.add(layers.MaxPooling2D((2, 2)))
+# model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+# model.add(layers.MaxPooling2D((2, 2)))
+# model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+
+
+model.add(tf.keras.layers.Dense(128, activation="relu"))
+model.add(tf.keras.layers.Dense(256, activation="relu"))
+model.add(tf.keras.layers.Dense(128, activation="relu"))
+model.add(tf.keras.layers.Dense(12, activation="softmax"))
+
+model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"])
+
+model.fit(x_train, y_train, epochs=20)
+
+model.save('handwritten.model')
