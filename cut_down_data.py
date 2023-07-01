@@ -13,9 +13,12 @@ def cut_down_data():
         
         for file in os.listdir(f'train_data/{folder}'):
             path = f'train_data/{folder}/{folder}_{str(index)}.jpg'
+
             im = Image.open(f'train_data/{folder}/{file}')
-            os.remove(f'train_data/{folder}/{file}')
             im = im.save(path)
+            
+            os.remove(f'train_data/{folder}/{file}')
+            
             index += 1
 
 cut_down_data()

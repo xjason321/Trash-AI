@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import tensorflow as tf
+import random
 from PIL import Image
 
 app = Flask(__name__, static_folder='static')
@@ -34,24 +35,20 @@ def upload():
     # Save the uploaded file to a specific location
     file.save('static/uploads/' + file.filename)
     
-    processed_input = preprocess_input(f'static/uploads/{file.filename}')
+    # processed_input = preprocess_input(f'static/uploads/{file.filename}')
     
-    # RUN NEURAL NETWORK ON PROCESSED INPUT.
-    model = tf.keras.models.load_model('handwritten.model')
+    # # RUN NEURAL NETWORK ON PROCESSED INPUT.
+    # model = tf.keras.models.load_model('trash.model')
     
-    # Make predictions and sort
-    predictions = model.predict(processed_input)
-    sorted_predictions = sorted(enumerate(predictions[0]), key=lambda x: x[1], reverse=True)
+    # # Make predictions and sort
+    # predictions = model.predict(processed_input)
+    # sorted_predictions = sorted(enumerate(predictions[0]), key=lambda x: x[1], reverse=True)
 
-    mapping = {
-        1: "battery", 2: "biological", 3: "brown-glass", 4: "cardboard", 5: "clothes", 6: "green-glass", 7:"metal", 8: "paper", 9: "plastic", 10: "shoes", 11: "trash", 12:"white-glass"
-    }
+    # mapping = {
+    #     1: "battery", 2: "biological", 3: "brown-glass", 4: "cardboard", 5: "clothes", 6: "green-glass", 7:"metal", 8: "paper", 9: "plastic", 10: "shoes", 11: "trash", 12:"white-glass"
+    # }
     
-    index1, likelihood1 = sorted_predictions[0]
-    index2, likelihood2 = sorted_predictions[1]
-    index3, likelihood3 = sorted_predictions[2]
-
-    prediction = "plastic"
+    prediction = random.choice(['battery', 'biological', 'brown-glass', 'cardboard', 'clothes', 'green-glass', 'metal', 'paper', 'plastic', 'shoes', 'trash', 'white-glass'])
 
     sort = {
         "metal": "Metal",
